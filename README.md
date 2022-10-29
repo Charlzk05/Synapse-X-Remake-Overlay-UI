@@ -12,3 +12,6 @@
 
 - ``IsIconic([in] HWND)`` Determines whether the specified window is minimized (iconic). if it returns true we force our program to minimize windowstate, if it returns false we force our program to normal windowstate
      - [IsIconic Documentation](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-isiconic)
+
+### Preview
+- https://gyazo.com/0d22a8bbe31209cfb38ba07f498b4fcc
