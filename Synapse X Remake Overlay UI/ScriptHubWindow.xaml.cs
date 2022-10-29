@@ -1,24 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Diagnostics;
-using System.Linq;
+using System.IO;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using WeAreDevs_API;
-using Newtonsoft;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.IO;
 
 namespace Synapse_X_Remake_Overlay_UI
 {
@@ -44,7 +33,7 @@ namespace Synapse_X_Remake_Overlay_UI
         public static extern bool IsIconic(IntPtr hwnd);
 
         public static string RobloxWindow = "RobloxPlayerBeta";
-        public static int ProcessIndex = 0;
+        public static int ProcessIndex = 1;
         static string json = File.ReadAllText("./../ScriptHub.json");
         JObject value = JObject.Parse(json);
 

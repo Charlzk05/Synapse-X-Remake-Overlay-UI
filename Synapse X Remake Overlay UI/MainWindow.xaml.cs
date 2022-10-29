@@ -1,18 +1,15 @@
-﻿using ICSharpCode.AvalonEdit.Highlighting.Xshd;
-using ICSharpCode.AvalonEdit.Highlighting;
-using ICSharpCode.AvalonEdit;
+﻿using ICSharpCode.AvalonEdit.Highlighting;
+using ICSharpCode.AvalonEdit.Highlighting.Xshd;
 using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
-using WeAreDevs_API;
 using System.Xml;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using WeAreDevs_API;
 
 namespace Synapse_X_Remake_Overlay_UI
 {
@@ -38,17 +35,13 @@ namespace Synapse_X_Remake_Overlay_UI
         public static extern bool IsIconic(IntPtr hwnd);
 
         public static string RobloxWindow = "RobloxPlayerBeta";
-        public static int ProcessIndex = 0;
+        public static int ProcessIndex = 1;
         public static string ScriptsPath = "./../../Scripts";
 
         public MainWindow()
         {
             InitializeComponent();
-
-            SetTimer();
-            LoadScripts();
-            LoadSettings();
-            LoadEditorSyntax();
+            LoadWRD();
         }
 
         private void LoadEditorSyntax()
@@ -80,6 +73,7 @@ namespace Synapse_X_Remake_Overlay_UI
                         SetTimer();
                         LoadScripts();
                         LoadSettings();
+                        LoadEditorSyntax();
                     }
                 }
             }
@@ -95,6 +89,7 @@ namespace Synapse_X_Remake_Overlay_UI
                     SetTimer();
                     LoadScripts();
                     LoadSettings();
+                    LoadEditorSyntax();
                 }
             }
         }
@@ -154,8 +149,20 @@ namespace Synapse_X_Remake_Overlay_UI
 
         private void ScriptHubButton_Click(object sender, RoutedEventArgs e)
         {
-            ScriptHubWindow scriptHub = new ScriptHubWindow();
-            scriptHub.Show();
+            try
+            {
+                ScriptHubWindow scriptHub = new ScriptHubWindow();
+                scriptHub.Show();
+            }
+            catch (Exception error)
+            {
+                var option = MessageBox.Show($"{error.Message}\n\nDo you still want to continue?", "Error!", MessageBoxButton.YesNo, MessageBoxImage.Error);
+
+                if (option == MessageBoxResult.No)
+                {
+                    Application.Current.Shutdown();
+                }
+            }
         }
 
         private void ExecuteButton_Click(object sender, RoutedEventArgs e)
