@@ -14,4 +14,7 @@
      - [IsIconic Documentation](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-isiconic)
 
 ### Preview
-- https://gyazo.com/0d22a8bbe31209cfb38ba07f498b4fcc
+
+- [GIF Preview](https://gyazo.com/0d22a8bbe31209cfb38ba07f498b4fcc)
+
+![image](https://user-images.githubusercontent.com/104715127/198831647-53754919-d145-441c-9c49-fdb2a5d782ed.png)
