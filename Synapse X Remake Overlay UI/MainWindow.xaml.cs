@@ -167,7 +167,7 @@ namespace Synapse_X_Remake_Overlay_UI
 
         private void ExecuteButton_Click(object sender, RoutedEventArgs e)
         {
-            wrd.SendLuaCScript(Editor.Text);
+            wrd.SendLuaScript(Editor.Text);
         }
 
         public static bool Collapsed = false;

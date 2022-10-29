@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
@@ -133,8 +134,15 @@ namespace Synapse_X_Remake_Overlay_UI
             if (ScriptBox.SelectedIndex != -1)
             {
                 string content = value["Scripts"][ScriptBox.SelectedIndex]["Content"].ToString();
-                MessageBox.Show(content);
+                WebClient client = new WebClient();
+                client.DownloadStringCompleted += DownloadScriptCompleted;
+                client.DownloadStringAsync(new Uri(content, UriKind.Absolute));
             }
+        }
+
+        private void DownloadScriptCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            wrd.SendLuaScript(e.Result);
         }
     }
 }
