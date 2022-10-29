@@ -1,6 +1,9 @@
 ### Synapse X Remake Overlay UI
 - An Overlay UI for Synapse X Remake
 
+### It doesn't open?
+- Either the roblox is not running or you didn't attached the WeAreDevsAPI
+
 ### How does it work?
 - Instead of Injecting the UI into roblox, it retrieves the dimensions of the bounding rectangle of roblox and overlays it.
 
